@@ -1,0 +1,36 @@
+.song-img {
+    width: 230px;
+    height: 160px;
+    background-color: grey;
+    border-radius: 10px;
+    object-fit: cover;
+    margin: auto;
+}
+
+.song-card-wrapper {
+    padding: 10px;
+}
+
+.song-card-wrapper:hover {
+    background-color: #212121;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.playlist-name {
+    color: white;
+    margin: 0px;
+    padding-top: 10px;
+}
+
+.playlist-description {
+    color: grey;
+    margin: 0px;
+}
+
+.song-card-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    padding: 20px;
+}

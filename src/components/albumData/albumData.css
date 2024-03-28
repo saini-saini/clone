@@ -1,0 +1,34 @@
+.album-img{
+    width: 250px;
+    height: 250px;
+    background-color: grey;
+    border-radius: 6px;
+    object-fit: cover;
+}
+
+.album-data-container{
+    width: 100%;
+    height: 100%;
+}
+
+.album-data-section-one{
+    height: 350px;
+    background-color: #4D4D4D;
+    padding-left: 25px;
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+.heading{
+    margin: 0px;
+    color: white;
+}
+
+.albumName {
+    font-size: 80px;
+}
+
+.artistName{
+    color: lightgray;
+}

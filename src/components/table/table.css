@@ -1,0 +1,126 @@
+.table-container {
+    width: 100%;
+    height: 100%;
+    background-color: #1E1E1E;
+}
+
+.tableHead {
+    border-bottom: 1px solid gray;
+    color: gray;
+}
+
+.tableBody {
+    color: white;
+}
+
+.trackImage {
+    width: 40px;
+    height: 40px;
+    border-radius: 3px;
+}
+
+.tableRowTitle {
+    display: flex;
+    gap: 15px;
+}
+
+.tableRowTitleAblum {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.tableRowTitleArtist {
+    color: gray;
+    cursor: pointer;
+}
+
+.tableRowTitleArtist:hover {
+    color: white;
+    text-decoration: underline;
+}
+
+.tableRowTitleAlbum:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.playImg {
+    width: 25px;
+    height: 25px;
+    background-color: #1FDF64;
+    border-radius: 50%;
+    padding: 15px;
+    cursor: pointer;
+}
+
+.heartGray {
+    width: 35px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.moreImg {
+    width: 25px;
+    height: 30px;
+    cursor: pointer;
+}
+
+.listImg {
+    width: 20px;
+    height: 20px;
+}
+
+.tableHeader-icons {
+    display: flex;
+    width: 100%;
+    background-color: #1E1E1E;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+}
+
+.tableHeader-icons-left {
+    width: 50%;
+    display: flex;
+    gap: 30px;
+    padding-left: 20px;
+
+}
+
+.tableHeader-icons-right {
+    width: 50%;
+    display: flex;
+    justify-content: end;
+    padding-right: 30px;
+}
+
+.tableHeader-icons-right-span {
+    color: gray;
+    padding-right: 10px;
+}
+
+.tableHeader-icons-right-span:hover {
+    color: white;
+    cursor: pointer;
+}
+
+.match-song-img {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+}
+
+.songImg-title {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.match-song-title {
+    cursor: pointer;
+}
+.match-song-title:hover{
+    text-decoration: underline;
+}
+

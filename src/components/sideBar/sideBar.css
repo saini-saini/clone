@@ -1,0 +1,165 @@
+.sideBar-section-one {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    background-color: #121212;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+.sideBar-logo {
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+}
+
+.sideBar-text {
+    color: gray;
+    text-decoration: none;
+    font-weight: 700;
+    transition: text-decoration 0.3s;
+}
+
+.sideBar-text:hover {
+    color: white;
+    cursor: pointer;
+}
+
+
+.sideBar-logo-wrapper {
+    display: flex;
+    gap: 20px;
+    padding: 10px;
+}
+
+.sideBar-logo-wrapper:hover {
+    cursor: pointer;
+    background-color: #232323;
+    border-radius: 10px;
+}
+
+.sidebar-library-container {
+    background-color: #121212;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.sidebar-library-wrapper-section-one {
+    display: flex;
+    background-color: #121212;
+    padding: 20px;
+}
+
+.sideBar-container {
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.sideBar-collapse-wrapper {
+    display: flex;
+    gap: 20px;
+    width: 60%;
+}
+
+.sideBar-library-logo-wrapper {
+    width: 40%;
+    display: flex;
+    justify-content: end;
+    gap: 20px;
+}
+
+.playlist-artists-btn {
+    width: 70px;
+    height: 35px;
+    border-radius: 20px;
+    background-color: #232323;
+    color: white;
+    border: none;
+}
+
+.sideBar-section-two-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.playlist-song-image {
+    width: 50px;
+    height: 50px;
+    border-radius: 5px;
+    background-color: gray;
+    object-fit: cover;
+}
+
+.playlist-name {
+    color: white;
+    margin: 0px;
+}
+
+.playlist-owner-name {
+    color: gray;
+    margin: 0px;
+}
+
+.sideBar-section-two-playlists {
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.sideBar-section-two-playlists:hover {
+    cursor: pointer;
+    background-color: #232323;
+    border-radius: 10px;
+}
+
+.section-two-playlists-name {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.sideBar-playlists-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    height: 38vh;
+    overflow: auto;
+    position: relative;
+}
+
+.sideBar-playlists-wrapper::-webkit-scrollbar {
+    display: none;
+}
+
+.active {
+    color: white;
+}
+
+/* .plausSideBarLogo{
+    position: relative;
+
+} */
+
+.createPlaylistBtn {
+    width: 130px;
+    height: 40px;
+    border-radius: 20px;
+    background-color: white;
+    color: black;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    top: 30%;
+    left: 25%;
+    font-weight:700 ;
+}
+
+.delete-icon {
+    color: white;
+    padding-right: 5px;
+}

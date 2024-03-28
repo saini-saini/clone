@@ -1,0 +1,81 @@
+.form-input {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.input {
+    width: 300px;
+    height: 30px;
+    border-radius: 5px;
+    border: 1px solid gray;
+    outline: none;
+    padding: 10px;
+    background-color: #121212;
+    color: white;
+
+}
+
+.login-form-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.submit-btn {
+    width: 320px;
+    height: 50px;
+    border-radius: 40px;
+    background-color: #1ED760;
+    border: none;
+    font-size: large;
+    cursor: pointer;
+}
+
+.login-container {
+    background-color: #121212;
+    width: 55%;
+    height: 100vh;
+    padding: 20px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    border-radius: 10px;
+    align-items: center;
+}
+
+.login-heading {
+    color: white;
+}
+
+.label {
+    color: white;
+
+}
+
+.already-have-account {
+    color: gray;
+}
+
+
+.logo {
+    background-color:#121212;
+    width: 100%;
+    display: flex;
+    gap: 10px;
+    height: 80px;
+align-items: center;
+}
+
+.spotify-logo {
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.login-container-wrapper{
+    background-color:#262626 ;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
