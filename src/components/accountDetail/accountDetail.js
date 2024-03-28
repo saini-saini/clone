@@ -18,13 +18,14 @@ const AccountDetail = ({ onClose}) => {
     }
   };
 
+  
   useEffect(() => {
     document.addEventListener('mousedown', handleClickOutside);
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
   }, []);
-  
+
 
   return (
     <div className='accountDetail-container' ref={accountDetailRef}>
