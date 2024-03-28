@@ -24,6 +24,7 @@ const AccountDetail = ({ onClose}) => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
   }, []);
+  
 
   return (
     <div className='accountDetail-container' ref={accountDetailRef}>
