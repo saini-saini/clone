@@ -44,19 +44,7 @@ export default function ReactVirtualizedTable() {
 
 
     const addPlayList = (tracks) => {
-        if (tracks) {
-            // const filteredSongsList = SongsList.filter(song => song.singerId === tracks.id);
-            const playlistData = {
-                name: tracks.name,
-                description: tracks.description,
-                image_url: tracks.image_url,
-                // rowData: filteredSongsList.map(song => ({
-                //     title: song.title,
-                //     album: song.album,
-                //     singerId: song.singerId,
-                //     image_url: song.img_url
-                // }))
-            };
+        if (tracks) {          
             dispatch(createPlaylist(tracks));
         }
     };
@@ -93,6 +81,7 @@ export default function ReactVirtualizedTable() {
             numeric: true,
         },
     ];
+
     const rows = tracks ?
         SongsList
             .filter(song => song.singerId === tracks)

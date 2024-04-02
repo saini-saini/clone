@@ -25,6 +25,7 @@ function App() {
     return <Outlet />;
   }
 
+
   return (
     <BrowserRouter>
       <div>
@@ -39,17 +40,19 @@ function App() {
             <Route path="/layout" element={<Layout />}>
               <Route index element={<Main />} />
               <Route path="profile" element={<Profile />} />
-              <Route path="search" element={<SearchScreen />} />
+              <Route path="search" element={<SearchScreen  />} />
               <Route path="album/songs" element={<AlbumData />}/>
               <Route path="playlistData" element={<PlaylistTableData />}/>
             </Route>
           </Route>
-
           <Route path="*" element={<PageNotFound />} />
         </Routes>
 
+
       </div>
     </BrowserRouter>
+
+    
   );
 }
 

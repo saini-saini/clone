@@ -5,6 +5,7 @@
     border-radius: 10px;
     object-fit: cover;
     margin: auto;
+    position: relative;
 }
 
 .song-card-wrapper {
@@ -33,4 +34,34 @@
     grid-template-columns: repeat(4, 1fr);
     gap: 10px;
     padding: 20px;
+}
+
+.playSong {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #1BA94E;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    padding: 4px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.song-img:hover {
+    .playSong {
+        opacity: 1;
+        transition: opacity 0.3s ease;
+
+    }
+}
+
+
+.playSongImg {
+    width: 20px;
+    height: 20p;
 }

@@ -4,7 +4,7 @@ import { LogoutUserData } from '../../redux/userData/action';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
-const AccountDetail = ({ onClose}) => {
+const AccountDetail = ({ onClose }) => {
   const dispatch = useDispatch();
   const accountDetailRef = useRef(null);
 
@@ -14,11 +14,10 @@ const AccountDetail = ({ onClose}) => {
 
   const handleClickOutside = (event) => {
     if (accountDetailRef.current && !accountDetailRef.current.contains(event.target)) {
-      onClose(); 
+      onClose();
     }
   };
 
-  
   useEffect(() => {
     document.addEventListener('mousedown', handleClickOutside);
     return () => {

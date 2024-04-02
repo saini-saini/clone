@@ -16,23 +16,23 @@ const AlertDialogSlide = ({ open, handleClose, handleDelete }) => {
         onClose={handleClose}
         aria-describedby="alert-dialog-slide-description"
       >
-        <DialogTitle sx={{fontWeight: 'bold'}}>{"Delete Playlist?"}</DialogTitle>
+        <DialogTitle sx={{ fontWeight: 'bold' }}>{"Delete Playlist?"}</DialogTitle>
         <DialogContent>
-          <DialogContentText id="alert-dialog-slide-description" sx={{color: 'black'}}>
+          <DialogContentText id="alert-dialog-slide-description" sx={{ color: 'black' }}>
             Are you sure you want to delete this playlist?
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose} sx={{color: 'black'}}>Cancel</Button>
-          <Button onClick={handleDelete} variant='contained' 
-          sx={{
-            backgroundColor: '#1FDF64',
-            color: 'black',
-            '&:hover': {
+          <Button onClick={handleClose} sx={{ color: 'black' }}>Cancel</Button>
+          <Button onClick={handleDelete} variant='contained'
+            sx={{
               backgroundColor: '#1FDF64',
-            },
-          }}
-          >Delete</Button>
+              color: 'black',
+              '&:hover': {
+                backgroundColor: '#1FDF64',
+              },
+            }}
+          >Ok</Button>
         </DialogActions>
       </Dialog>
     </React.Fragment>

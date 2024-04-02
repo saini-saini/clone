@@ -79,20 +79,33 @@ export default function ReactVirtualizedTable() {
         },
     ];
 
-
-    const rows = matchedSongs?.map((matchedSong, index) =>
-        createData(
-            index + 1,
-            <div className='songImg-title'>
-                < img src={matchedSong?.img_url} alt="" className='match-song-img' onClick={() => onImageClick(matchedSong)} />
-                <div className='match-song-title'>
-                    {matchedSong.title}
-                </div>
-            </div>,
-            matchedSong.album,
-            matchedSong.duration || "N/A"
-        )
-    )
+    let rows;
+    if (matchedSongs && matchedSongs.length > 0) {
+        rows = matchedSongs.map((matchedSong, index) =>
+            createData(
+                index + 1,
+                <div className='songImg-title'>
+                    <img src={matchedSong?.img_url} alt="" className='match-song-img' onClick={() => onImageClick(matchedSong)} />
+                    <div className='match-song-title'>
+                        {matchedSong.title}
+                    </div>
+                </div>,
+                matchedSong.album,
+                matchedSong.duration || "N/A"
+            )
+        );
+    } else {
+        rows = [
+            createData(
+                "",
+                <div style={{ color: 'white', textAlign: 'center', width: "450px", paddingLeft: "200px" }}>
+                    <h1>Add some songs to your playlist to see them here</h1>
+                </div>,
+                '',
+                ''
+            )
+        ];
+    }
 
     const VirtuosoTableComponents = {
         Scroller: React.forwardRef((props, ref) => (
@@ -191,7 +204,7 @@ export default function ReactVirtualizedTable() {
                     components={VirtuosoTableComponents}
                     fixedHeaderContent={fixedHeaderContent}
                     itemContent={rowContent}
-                />    
+                />
             </Paper>
             <CreatePlayListDialog open={openDialog} setOpen={setOpenDialog} onClose={handleCloseDialog} />
 

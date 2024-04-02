@@ -52,12 +52,13 @@
     padding: 8px;
     cursor: pointer;
 }
-.pausebtn{
-      background-color: white;
+
+.pausebtn {
+    background-color: white;
     border-radius: 50%;
     width: 14px;
     height: 14px;
-    padding:4px;
+    padding: 4px;
     cursor: pointer;
 }
 
@@ -65,8 +66,42 @@
     display: flex;
     flex-direction: column;
     /* gap: 20px; */
-    width: 50%;
+    width: 100%;
 }
+
+.custom-audio-player {
+    background-color: #000000 !important;
+    padding: 0px !important;
+    width: 97% !important;
+    .rhap_time {
+        color: white !important;
+    }
+}
+
+.backward-controls {
+    position: absolute;
+    bottom: 10px;
+    left: 52.5%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    width: 25px;
+    height: 25px;
+    margin: 0 10px;
+}
+
+.forward-controls {
+    position: absolute;
+    bottom: 10px;
+    left: 64%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    width: 25px;
+    height: 25px;
+    margin: 0 10px;
+}
+
 
 .songPlayPause-center-side {
     display: flex;
@@ -95,7 +130,7 @@
     align-items: center;
 }
 
-.songPlayPause-image{
+.songPlayPause-image {
     width: 50px;
     height: 50px;
     border-radius: 5px;
