@@ -24,16 +24,11 @@ import PauseIcon from '@mui/icons-material/Pause';
 export default function ReactVirtualizedTable() {
     const tracks = useSelector((state) => state?.clickSong?.clickSongData);
     const [isPlaying, setIsPlaying] = useState(false);
-    const [hoveredRow, setHoveredRow] = useState(null);
 
     const dispatch = useDispatch();
     function createData(index, title, album, duration) {
         return { index, title, album, duration };
     }
-
-    const handleRowHover = (index) => {
-        setHoveredRow(index);
-    };
 
     useEffect(() => {
         if (tracks) {
@@ -115,10 +110,11 @@ export default function ReactVirtualizedTable() {
         TableRow: ({ item: _item, index, ...props }) => (
             <TableRow
                 {...props}
-                onMouseEnter={() => handleRowHover(index)}
-                onMouseLeave={() => handleRowHover(null)}
                 sx={{
-                    backgroundColor: hoveredRow === index ? 'green' : 'yellow',
+                   
+                    ":hover": {
+                        backgroundColor:"red"
+                    }
 
                 }}
             />
@@ -160,6 +156,8 @@ export default function ReactVirtualizedTable() {
                             backgroundColor: '#1E1E1E',
                             color: 'white',
                             borderBottom: "none",
+                          
+        
                         }}
                     >
                         {row[column.dataKey]}

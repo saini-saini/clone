@@ -13,7 +13,7 @@ import { ClickedSongsData } from '../../redux/clickSongData/action'
 import DeleteIcon from '@mui/icons-material/Delete';
 import { deletePlaylist } from '../../redux/playlist/action'
 import AlertDialogSlide from './delete'
-const SideBar = ({ buttonClick,expandSideBar }) => {
+const SideBar = ({ buttonClick, expandSideBar }) => {
   const playlists = useSelector((state) => state?.playlistData.playlists);
   const userData = useSelector((state) => state.userDetail.loggedInUser);
   const [openDialog, setOpenDialog] = useState(false);
@@ -33,7 +33,7 @@ const SideBar = ({ buttonClick,expandSideBar }) => {
     dispatch(deletePlaylist(playlist))
   }
 
-  
+
   const handleClickDeletePlaylist = (playlist) => {
     setPlaylistToDelete(playlist);
     setOpenDialog(true);
@@ -82,7 +82,7 @@ const SideBar = ({ buttonClick,expandSideBar }) => {
           <div className='sideBar-library-logo-wrapper'>
             <img src={plusIcon} alt="plusIcon" className='sideBar-logo plausSideBarLogo' onClick={() => setShowAddPlaylistBox(!showAddPlaylistBox)} />
             {showAddPlaylistBox && <CreatePlaylist onClose={() => setShowAddPlaylistBox(false)} />}
-            <img src={rightArrow} alt="rightArrow" className='sideBar-logo expandSiseBar' onClick={expandSideBar}/>
+            <img src={rightArrow} alt="rightArrow" className='sideBar-logo expandSiseBar' onClick={expandSideBar} />
           </div>
         </div>
 
