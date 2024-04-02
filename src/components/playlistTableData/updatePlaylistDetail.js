@@ -75,7 +75,7 @@ export default function UpdatePlayListDialog({ open, setOpen, onClose }) {
 
             }}
         >
-            <DialogTitle sx={{fontWeight: 'bold', textAlign: 'center', textDecoration: 'underline'}}>Update Playlist</DialogTitle>
+            <DialogTitle sx={{fontWeight: 'bold', textAlign: 'center', textDecoration: 'underline'}}>Edit details</DialogTitle>
             <DialogContent style={{ display: "flex", gap: "30px", alignItems: "center", justifyContent: "center" }}>
                 <div>
                     <input
@@ -87,7 +87,7 @@ export default function UpdatePlayListDialog({ open, setOpen, onClose }) {
                         onChange={handleImageChange}
                     />
                     <label htmlFor="image" style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
-                        <Avatar src={selectedImage || playlistDetail?.image_url || "/broken-image.jpg"} style={{ width: "100px", height: "100px", borderRadius: "0%", cursor: "pointer" }} />
+                        <Avatar src={selectedImage || playlistDetail?.image_url || "/broken-image.jpg"} style={{ width: "100px", height: "100px", borderRadius: "10%", cursor: "pointer" }} />
                     </label>
                     <TextField
                         required
@@ -104,12 +104,13 @@ export default function UpdatePlayListDialog({ open, setOpen, onClose }) {
                         onChange={(e) => setName(e.target.value)}
                     />
                     <TextField
+                    required
                         margin="dense"
                         id="description"
                         name="description"
                         label="Description"
                         type="text"
-                        placeholder='Add an optional description'
+                        placeholder='Add an description'
                         fullWidth
                         variant="standard"
                         value={description}

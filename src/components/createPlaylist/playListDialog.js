@@ -80,7 +80,7 @@ export default function CreatePlayListDialog({ open, setOpen, onClose }) {
                         onChange={handleImageChange}
                     />
                     <label htmlFor="image" style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
-                        <Avatar src={selectedImage || "/broken-image.jpg"} style={{ width: "100px", height: "100px", borderRadius: "0%", cursor: "pointer" }} />
+                        <Avatar src={selectedImage || "/broken-image.jpg"} style={{ width: "100px", height: "100px", borderRadius: "10%", cursor: "pointer" }} />
                     </label>
                     <TextField
                         required
@@ -94,12 +94,13 @@ export default function CreatePlayListDialog({ open, setOpen, onClose }) {
                         variant="standard"
                     />
                     <TextField
+                        required
                         margin="dense"
                         id="description"
                         name="description"
                         label="Description"
                         type="text"
-                        placeholder='Add an optional description'
+                        placeholder='Add an description'
                         fullWidth
                         variant="standard"
                     />

@@ -9,7 +9,7 @@ import { useEffect } from 'react';
 import { useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ClickedSongsData } from '../../redux/clickSongData/action';
-
+import play from "../../images/play.png";
 const SearchScreen = () => {
     const Search = styled('div')(({ theme }) => ({
         position: 'relative',
@@ -63,7 +63,7 @@ const SearchScreen = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const inputRef = useRef(null);
-    
+
     const handleInputChange = (event) => {
         const { value } = event.target;
         setSearchValue(value);
@@ -116,18 +116,22 @@ const SearchScreen = () => {
                 {filteredArtists?.length > 0 ? (
                     <div className='song-card-container'>
                         {filteredArtists.map((song) => (
-                            <div className='song-card-wrapper'>
-                                <div className='song-img'>
-                                    <img src={song.image_url} alt="error" className='playlist-song-img' onClick={() => onImageClick(song.id)} />
+                            <div className='search-song-card-wrapper' onClick={() => onImageClick(song.id)}>
+                                <div className='search-song-img'>
+                                    <img src={song.image_url} alt="error" className='search-playlist-song-img' onClick={() => onImageClick(song.id)} />
+                                    <div className='search-playSong' onClick={() => onImageClick(song.id)} >
+                                        <img src={play} alt="play" className='search-playSongImg' onClick={() => onImageClick(song.id)} />
+                                    </div>
                                 </div>
                                 <div className='playlist-name-container'>
-                                    <h4 className='search-playlist-name'>{song.name}</h4>
+                                    <h2 className='search-playlist-name'>{song.name}</h2>
+                                    <h4 className='search-playlist-artist'>Artist</h4>
                                 </div>
                             </div>
 
                         ))}
                     </div>
-                ) : (<h1 style={{ color: 'white', textAlign: 'center' }}>No match found</h1>)}
+                ) : (<h1 style={{ color: 'white', textAlign: 'center' }}>No result found</h1>)}
                 <div>
                     <Footer />
                 </div>
