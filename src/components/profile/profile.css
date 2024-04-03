@@ -1,11 +1,12 @@
 .profile-container{
         background-color: #282828;
         width: 100%;
-        height: 87vh;
+        height: 62vh;
         display: flex;
         gap: 30px;
     justify-content: center;
     align-items: center;
+    padding-top: 50px;
 }
 
 .input {
@@ -20,7 +21,7 @@
     border-radius: 10px;
     border: none;
     font-size: larger;
-    
+   cursor: pointer;
 }
 
 .form-input {
@@ -34,4 +35,9 @@
     flex-direction: column;
     color: white;
     gap: 10px;
+}
+
+.profile-wrapper{
+    position: fixed;
+    width: 77%;
 }

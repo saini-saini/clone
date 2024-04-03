@@ -34,8 +34,12 @@
 .signup-container {
     background-color: #121212;
     width: 100%;
-    height: 100%;
+    /* height: 100%; */
     padding: 20px;
+    overflow-y: scroll;
+}
+.signup-container::-webkit-scrollbar {
+    display: none;
 }
 
 .signup-heading {
@@ -53,7 +57,12 @@
 
 .signup-container-wrapper {
     display: flex;
+    height: 100vh;
+    overflow-y: scroll;
+}
 
+.signup-container-wrapper::-webkit-scrollbar {
+    display: none;
 }
 
 .signup-logo {
