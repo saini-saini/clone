@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Avatar from '@mui/material/Avatar';
 import './profile.css';
@@ -28,8 +28,8 @@ const Profile = () => {
         dispatch(updateUserData(updatedUser));
         console.log("Notification should be triggered now");
         notify();
-    };    
-    
+    };
+
     return (
         <div className='profile-wrapper'>
             <div style={{
@@ -41,7 +41,7 @@ const Profile = () => {
                 alignItems: "center",
                 gap: "15px"
             }}>
-                <h1 style={{ color: "white", backgroundColor: "#282828", margin: "0px",textDecoration: "underline" }}>Profile</h1>
+                <h1 style={{ color: "white", backgroundColor: "#282828", margin: "0px", textDecoration: "underline" }}>Profile</h1>
                 <EditIcon sx={{ color: "white", cursor: "pointer" }} onClick={() => editClick()} />
             </div>
             <div className='profile-container'>
@@ -69,7 +69,7 @@ const Profile = () => {
                                 </div>
                                 <div className='form-input-wrapper'>
                                     <label htmlFor="">Email</label>
-                                    <Field type="text" name="email" placeholder="email address" className="input" autoComplete="off" disabled  />
+                                    <Field type="text" name="email" placeholder="email address" className="input" autoComplete="off" disabled />
                                     <ErrorMessage name="email" component={TextError} />
                                 </div>
                                 <div className='form-input-wrapper'>

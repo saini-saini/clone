@@ -29,10 +29,6 @@ const SideBar = ({ buttonClick, expandSideBar }) => {
 
   }
 
-  const OnClickdeletePlaylist = (playlist) => {
-    dispatch(deletePlaylist(playlist))
-  }
-
 
   const handleClickDeletePlaylist = (playlist) => {
     setPlaylistToDelete(playlist);
@@ -48,6 +44,7 @@ const SideBar = ({ buttonClick, expandSideBar }) => {
   const handleDeletePlaylist = () => {
     if (playlistToDelete) {
       dispatch(deletePlaylist(playlistToDelete));
+      navigate("/layout")
       setOpenDialog(false);
       setPlaylistToDelete(null);
     }
