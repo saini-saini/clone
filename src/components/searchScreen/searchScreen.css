@@ -140,3 +140,62 @@
 
     }
 }
+
+
+.search-song-card-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    padding: 20px;
+}
+
+
+@media (width < 300px) {
+    .search-song-card-container {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+/* for mobile */
+@media (min-width: 300px) and (max-width: 480px) {
+    .search-song-card-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+/* for ipad */
+@media (min-width: 481px) and (max-width: 768px) {
+    .search-song-card-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+/* small screen */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .search-song-card-container {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* Desktops, large screens */
+@media (min-width: 1024px) and (max-width: 1200px) {
+    .search-song-card-container {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
+
+
+/* Extra large screens, TV */
+@media (width >=1200px) {
+    .search-song-card-container {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+    }
+}
