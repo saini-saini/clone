@@ -4,6 +4,7 @@ export const LOGIN_USER_DATA = "LOGIN_USER_DATA";
 export  const CREATE_PLAYLIST = "CREATE_PLAYLIST"
 export const CLICKED_ADD_SONG = "CLICKED_ADD_SONG";
 export const REMOVE_SONG = "REMOVE_SONG";
+export const UPDATE_USER_DATA = "UPDATE_USER_DATA";
 export const SignUpUserData = (data) => ({
     type: SIGNUP_USER_DATA,
     payload: data
@@ -27,6 +28,10 @@ export const createPlaylist = (data) => {
     }
 }
 
+export const updateUserData = (data) => ({
+    type: UPDATE_USER_DATA,
+    payload: data
+});
 
 export const ClickedAddSong = (data) => ({
     type: "CLICKED_ADD_SONG",

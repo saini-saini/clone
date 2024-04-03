@@ -7,6 +7,11 @@
     justify-content: center;
     align-items: center;
     padding-top: 50px;
+    overflow-y: scroll;
+}
+
+.profile-container::-webkit-scrollbar{
+    display: none;
 }
 
 .input {

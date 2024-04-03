@@ -2,6 +2,7 @@ import {
     SIGNUP_USER_DATA,
     LOGIN_USER_DATA,
     LOGOUT_USER,
+    UPDATE_USER_DATA,
 } from "./action";
 
 const initialState = {
@@ -56,6 +57,23 @@ const userDetailReducer = (state = initialState, action) => {
                 ...state,
                 loggedInUser: null,
                 error: ""
+            };
+        case UPDATE_USER_DATA:
+            return {
+                ...state,
+                signUpUserData: state.signUpUserData.map(user => {
+                    if (user.id === action.payload.id) {
+                        return {
+                            ...user,
+                            ...action.payload
+                        };
+                    }
+                    return user;
+                }),
+                loggedInUser: {
+                    ...state.loggedInUser,
+                    ...action.payload
+                }
             };
         default:
             return state;
