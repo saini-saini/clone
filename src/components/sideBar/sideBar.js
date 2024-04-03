@@ -7,19 +7,17 @@ import rightArrow from "../../images/right-arrow.png"
 import './sideBar.css'
 import { useDispatch, useSelector } from 'react-redux'
 import { NavLink, useNavigate } from 'react-router-dom'
-import CreatePlaylist from '../createPlaylist/createPlaylist'
 import { useState } from 'react'
 import { ClickedSongsData } from '../../redux/clickSongData/action'
 import DeleteIcon from '@mui/icons-material/Delete';
 import { deletePlaylist } from '../../redux/playlist/action'
 import AlertDialogSlide from './delete'
+import CreatePlayListDialog from '../createPlaylist/playListDialog'
 const SideBar = ({ buttonClick, expandSideBar }) => {
   const playlists = useSelector((state) => state?.playlistData.playlists);
   const userData = useSelector((state) => state.userDetail.loggedInUser);
   const [openDialog, setOpenDialog] = useState(false);
   const [playlistToDelete, setPlaylistToDelete] = useState(null);
-
-  const [showAddPlaylistBox, setShowAddPlaylistBox] = useState(false)
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -29,16 +27,9 @@ const SideBar = ({ buttonClick, expandSideBar }) => {
 
   }
 
-
   const handleClickDeletePlaylist = (playlist) => {
     setPlaylistToDelete(playlist);
     setOpenDialog(true);
-  };
-
-
-  const handleCloseDialog = () => {
-    setOpenDialog(false);
-    setPlaylistToDelete(null);
   };
 
   const handleDeletePlaylist = () => {
@@ -48,6 +39,15 @@ const SideBar = ({ buttonClick, expandSideBar }) => {
       setOpenDialog(false);
       setPlaylistToDelete(null);
     }
+  };
+
+  const handleCreatePlaylistClick = () => {
+    setOpenDialog(true);
+
+  };
+
+  const handleCloseDialog = () => {
+    setOpenDialog(false);
   };
 
   const filteredPlaylists = playlists ? Object.values(playlists).filter(playlist => playlist.user === userData.email) : [];
@@ -77,8 +77,8 @@ const SideBar = ({ buttonClick, expandSideBar }) => {
           </div>
 
           <div className='sideBar-library-logo-wrapper'>
-            <img src={plusIcon} alt="plusIcon" className='sideBar-logo plausSideBarLogo' onClick={() => setShowAddPlaylistBox(!showAddPlaylistBox)} />
-            {showAddPlaylistBox && <CreatePlaylist onClose={() => setShowAddPlaylistBox(false)} />}
+            <img src={plusIcon} alt="plusIcon" className='sideBar-logo plausSideBarLogo' onClick={handleCreatePlaylistClick} />
+            <CreatePlayListDialog open={openDialog} setOpen={setOpenDialog} onClose={handleCloseDialog} />
             <img src={rightArrow} alt="rightArrow" className='sideBar-logo expandSiseBar' onClick={expandSideBar} />
           </div>
         </div>
@@ -96,7 +96,7 @@ const SideBar = ({ buttonClick, expandSideBar }) => {
             filteredPlaylists.length === 0 ?
               <div className='createFirstPlaylistBox'>
                 <h4 style={{ color: 'white', margin: '40px 60px' }}>Create your first playlist</h4>
-                <button className='createPlaylistBtn' onClick={() => setShowAddPlaylistBox(!showAddPlaylistBox)}>Create Playlist</button>
+                <button className='createPlaylistBtn' onClick={handleCreatePlaylistClick}>Create Playlist</button>
               </div> :
               (
                 filteredPlaylists.map(playlist => (
