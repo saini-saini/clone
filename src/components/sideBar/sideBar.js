@@ -17,6 +17,7 @@ const SideBar = ({ buttonClick, expandSideBar }) => {
   const playlists = useSelector((state) => state?.playlistData.playlists);
   const userData = useSelector((state) => state.userDetail.loggedInUser);
   const [openDialog, setOpenDialog] = useState(false);
+  const [openDeleteDialog, setOpenDeleteDialog] = useState(false);
   const [playlistToDelete, setPlaylistToDelete] = useState(null);
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -24,22 +25,26 @@ const SideBar = ({ buttonClick, expandSideBar }) => {
   const onImageClick = (song) => {
     navigate("/layout/playlistData")
     dispatch(ClickedSongsData(song));
-
   }
 
   const handleClickDeletePlaylist = (playlist) => {
     setPlaylistToDelete(playlist);
-    setOpenDialog(true);
+    setOpenDeleteDialog(true);
   };
 
   const handleDeletePlaylist = () => {
     if (playlistToDelete) {
       dispatch(deletePlaylist(playlistToDelete));
       navigate("/layout")
-      setOpenDialog(false);
+      setOpenDeleteDialog(false);
       setPlaylistToDelete(null);
     }
   };
+
+  const handleCloseDeleteDialog = () => {
+    setOpenDeleteDialog(false);
+  };
+
 
   const handleCreatePlaylistClick = () => {
     setOpenDialog(true);
@@ -112,16 +117,14 @@ const SideBar = ({ buttonClick, expandSideBar }) => {
                     </div>
                     <DeleteIcon className='delete-icon' onClick={() => handleClickDeletePlaylist(playlist.id)} />
                     <AlertDialogSlide
-                      open={openDialog}
-                      handleClose={handleCloseDialog}
+                      open={openDeleteDialog}
+                      handleClose={handleCloseDeleteDialog}
                       handleDelete={handleDeletePlaylist}
                     />
                   </div>
-                )))
-          }
+                )))}
         </div>
       </div>
-
     </div>
   )
 }
