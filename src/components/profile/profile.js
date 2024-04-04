@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Avatar from '@mui/material/Avatar';
 import './profile.css';
@@ -13,7 +13,10 @@ import { updateUserData } from '../../redux/userData/action';
 const Profile = () => {
     const signUpUserData = useSelector(state => state.userDetail.loggedInUser);
     const [disabled, setDisabled] = useState(true);
-    const notify = () => toast("✅ Profile updated successfully");
+    const notify = () => {
+        console.log("notify");
+        toast("✅ Profile updated successfully")
+    };
     const dispatch = useDispatch();
     const editClick = () => {
         setDisabled(!disabled);
@@ -26,8 +29,9 @@ const Profile = () => {
             number: values.number,
         };
         dispatch(updateUserData(updatedUser));
-        console.log("Notification should be triggered now");
         notify();
+        setDisabled(true);
+        alert("✅ Profile updated successfully");
     };
 
     return (
@@ -41,8 +45,7 @@ const Profile = () => {
                 alignItems: "center",
                 gap: "15px"
             }}>
-                <h1 style={{ color: "white", backgroundColor: "#282828", margin: "0px", textDecoration: "underline" }}>Profile</h1>
-                <EditIcon sx={{ color: "white", cursor: "pointer" }} onClick={() => editClick()} />
+
             </div>
             <div className='profile-container'>
                 <div className='profile-img'>
@@ -62,6 +65,12 @@ const Profile = () => {
                     <div >
                         <Form>
                             <div className='form-input'>
+                                <div
+                                style={{display: "flex", justifyContent: "center", alignItems: "center", gap: "10px"}}
+                                >
+                                <h1 style={{ color: "white", backgroundColor: "#282828", margin: "0px", textDecoration: "underline" }}>Profile</h1>
+                                <EditIcon sx={{ color: "white", cursor: "pointer" }} onClick={() => editClick()} />
+                                </div>
                                 <div className='form-input-wrapper'>
                                     <label htmlFor="">Name</label>
                                     <Field type="text" name="username" placeholder="username" className="input" autoComplete="off" disabled={disabled} style={{ backgroundColor: disabled ? '#3E3E3E' : '#777777' }} />
@@ -73,11 +82,11 @@ const Profile = () => {
                                     <ErrorMessage name="email" component={TextError} />
                                 </div>
                                 <div className='form-input-wrapper'>
-                                    <label htmlFor="">Number</label>
+                                    <label htmlFor="">Contact Number</label>
                                     <Field type="text" name="number" placeholder="contact number" className="input" autoComplete="off" disabled={disabled} style={{ backgroundColor: disabled ? '#3E3E3E' : '#777777' }} />
                                     <ErrorMessage name="number" component={TextError} />
                                 </div>
-                                <div>
+                                <div style={{marginBottom: "10px"}}>
                                     <button className='update-btn' type="submit" disabled={disabled} style={{ display: disabled ? 'none' : 'block' }}>Save</button>
                                     <ToastContainer
                                         autoClose={3000}

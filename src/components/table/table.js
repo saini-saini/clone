@@ -110,13 +110,6 @@ export default function ReactVirtualizedTable() {
         TableRow: ({ item: _item, index, ...props }) => (
             <TableRow
                 {...props}
-                sx={{
-                   
-                    ":hover": {
-                        backgroundColor:"red"
-                    }
-
-                }}
             />
         ),
         TableBody: React.forwardRef((props, ref) => <TableBody {...props} ref={ref} />),
@@ -156,8 +149,6 @@ export default function ReactVirtualizedTable() {
                             backgroundColor: '#1E1E1E',
                             color: 'white',
                             borderBottom: "none",
-                          
-        
                         }}
                     >
                         {row[column.dataKey]}

@@ -71,6 +71,7 @@ width: 60%;
     display: flex;
     width: 40%;
     justify-content: end;
+    font-weight: bold;
 }
 
 .footer-search{
