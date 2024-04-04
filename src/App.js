@@ -10,6 +10,7 @@ import { Navigate, Outlet } from "react-router-dom";
 import { useSelector } from "react-redux";
 import AlbumData from "./components/albumData/albumData";
 import PlaylistTableData from "./components/playlistTableData/playlistTableData";
+import { ToastContainer } from "react-toastify";
 function App() {
   const token = useSelector(state => state.userDetail.loggedInUser);
 
@@ -40,19 +41,22 @@ function App() {
             <Route path="/layout" element={<Layout />}>
               <Route index element={<Main />} />
               <Route path="profile" element={<Profile />} />
-              <Route path="search" element={<SearchScreen  />} />
-              <Route path="album/songs" element={<AlbumData />}/>
-              <Route path="playlistData" element={<PlaylistTableData />}/>
+              <Route path="search" element={<SearchScreen />} />
+              <Route path="album/songs" element={<AlbumData />} />
+              <Route path="playlistData" element={<PlaylistTableData />} />
             </Route>
           </Route>
           <Route path="*" element={<PageNotFound />} />
         </Routes>
 
-
+        <ToastContainer
+          autoClose={2000}
+          hideProgressBar
+          closeOnClick
+          theme='dark'
+        />
       </div>
     </BrowserRouter>
-
-    
   );
 }
 

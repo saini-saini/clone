@@ -13,8 +13,6 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import { deletePlaylist } from '../../redux/playlist/action'
 import AlertDialogSlide from './delete'
 import CreatePlayListDialog from '../createPlaylist/playListDialog'
-import FormatListBulletedIcon from '@mui/icons-material/FormatListBulleted';
-import Tooltip from '@mui/material/Tooltip';
 
 const SideBar = ({ buttonClick, expandSideBar }) => {
   const playlists = useSelector((state) => state?.playlistData.playlists);
@@ -85,7 +83,6 @@ const SideBar = ({ buttonClick, expandSideBar }) => {
           </div>
 
           <div className='sideBar-library-logo-wrapper'>
-            <FormatListBulletedIcon sx={{ color: 'white' }}/>
             <img src={plusIcon} alt="plusIcon" className='sideBar-logo plausSideBarLogo' onClick={handleCreatePlaylistClick} />
             <CreatePlayListDialog open={openDialog} setOpen={setOpenDialog} onClose={handleCloseDialog} />
             <img src={rightArrow} alt="rightArrow" className='sideBar-logo expandSiseBar' onClick={expandSideBar} />

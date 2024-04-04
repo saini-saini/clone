@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Avatar from '@mui/material/Avatar';
 import './profile.css';
@@ -6,32 +6,37 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import TextError from './errorMessage';
 import { ProfileValidation } from '../formValidation/formValidation';
 import EditIcon from '@mui/icons-material/Edit';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { updateUserData } from '../../redux/userData/action';
+import Tooltip from '@mui/material/Tooltip';
 
 const Profile = () => {
     const signUpUserData = useSelector(state => state.userDetail.loggedInUser);
     const [disabled, setDisabled] = useState(true);
-    const notify = () => {
-        console.log("notify");
-        toast("✅ Profile updated successfully")
-    };
     const dispatch = useDispatch();
     const editClick = () => {
         setDisabled(!disabled);
     }
 
     const onSave = (values) => {
-        const updatedUser = {
-            ...signUpUserData,
-            username: values.username,
-            number: values.number,
-        };
-        dispatch(updateUserData(updatedUser));
-        notify();
-        setDisabled(true);
-        alert("✅ Profile updated successfully");
+        try {
+            const updatedUser = {
+                ...signUpUserData,
+                username: values.username,
+                number: values.number,
+            };
+            dispatch(updateUserData(updatedUser));
+            toast("✅ Profile updated successfully")
+            setDisabled(true);
+
+        } catch (error) {
+            console.log(error)
+            setDisabled(true);
+            toast.error("Something went wrong", {
+                theme: "colored",
+            })
+        }
     };
 
     return (
@@ -66,10 +71,12 @@ const Profile = () => {
                         <Form>
                             <div className='form-input'>
                                 <div
-                                style={{display: "flex", justifyContent: "center", alignItems: "center", gap: "10px"}}
+                                    style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: "10px" }}
                                 >
-                                <h1 style={{ color: "white", backgroundColor: "#282828", margin: "0px", textDecoration: "underline" }}>Profile</h1>
-                                <EditIcon sx={{ color: "white", cursor: "pointer" }} onClick={() => editClick()} />
+                                    <h1 style={{ color: "white", backgroundColor: "#282828", margin: "0px", textDecoration: "underline" }}>Profile</h1>
+                                    <Tooltip title={"Edit"}>
+                                        <EditIcon sx={{ color: "white", cursor: "pointer" }} onClick={() => editClick()} />
+                                    </Tooltip>
                                 </div>
                                 <div className='form-input-wrapper'>
                                     <label htmlFor="">Name</label>
@@ -86,14 +93,8 @@ const Profile = () => {
                                     <Field type="text" name="number" placeholder="contact number" className="input" autoComplete="off" disabled={disabled} style={{ backgroundColor: disabled ? '#3E3E3E' : '#777777' }} />
                                     <ErrorMessage name="number" component={TextError} />
                                 </div>
-                                <div style={{marginBottom: "10px"}}>
+                                <div style={{ marginBottom: "10px" }}>
                                     <button className='update-btn' type="submit" disabled={disabled} style={{ display: disabled ? 'none' : 'block' }}>Save</button>
-                                    <ToastContainer
-                                        autoClose={3000}
-                                        hideProgressBar
-                                        closeOnClick
-                                        theme='dark'
-                                    />
                                 </div>
                             </div>
                         </Form>
